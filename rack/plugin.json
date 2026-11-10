@@ -1,0 +1,26 @@
+{
+  "slug": "KerrStinn",
+  "name": "KerrStinn",
+  "version": "2.0.0",
+  "license": "GPL-3.0-or-later",
+  "brand": "KerrStinn",
+  "author": "Johan Larsby (original), Jan Schröder (Rack port)",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "https://github.com/vier31/Kerrstinn",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": [
+    {
+      "slug": "KerrStinn",
+      "name": "KerrStinn",
+      "description": "Clock-synced loop slicer/glitcher, after KerrStinn (Johan Larsby, 2007)",
+      "tags": [
+        "Sampler",
+        "Random"
+      ]
+    }
+  ]
+}
