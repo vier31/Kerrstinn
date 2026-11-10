@@ -58,6 +58,27 @@ inline const char* generatorName (int type)
     return (type >= 1 && type <= 16) ? names[type] : names[0];
 }
 
+// processReplacing()'s read position, 0..1 through the processed loop.
+// barPhase is the position inside the current bar (0..1, the original's
+// (ppqPos - barStartPos) / 4), bar the host's bar count (ppqPos / 4). The
+// original divided by (bar length + block size), which made playback depend
+// on the host's buffer size; that term is left out.
+inline float positionFor (double barPhase, long bar, int numbars)
+{
+    float inpos = (float) barPhase;
+    inpos = inpos / numbars;
+    inpos += ((1.0 / numbars) * (int) (bar % numbars)); // float += double, as in the original
+    if (inpos > 1.0)
+        inpos = 0;
+    return inpos;
+}
+
+// engine::getData(side, position) on a processed buffer of length + 1 samples.
+inline int indexFor (float inpos, int length)
+{
+    return (int) (length * inpos);
+}
+
 template <class Buffer>
 class KerrStinn
 {
@@ -134,20 +155,6 @@ public:
         }
         for (int i = 0; i < kNumParams; i++)
             setParameter (kRestoreOrder[i], params[kRestoreOrder[i]]);
-    }
-
-    // processReplacing()'s read position. barPhase is the position inside
-    // the current bar (0..1), bar the host's bar count. The original divided
-    // by (bar length + block size), which made it depend on the host's
-    // buffer size; that term is left out.
-    float positionFor (double barPhase, long bar) const
-    {
-        float inpos = (float) barPhase;
-        inpos = inpos / numbars;
-        inpos += ((1.0 / numbars) * (int) (bar % numbars)); // float += double, as in the original
-        if (inpos > 1.0)
-            inpos = 0;
-        return inpos;
     }
 
     float sample (int side, float inpos) const { return engine.getData (side, inpos); }
