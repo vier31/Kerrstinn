@@ -7,8 +7,8 @@ Unless a file contains a different notice:
   [LICENSE](./LICENSE).
 - The project's original images, audio, and documentation are licensed under
   the Creative Commons Attribution-ShareAlike 4.0 International License. This
-  includes `bmp00128.png` through `bmp00132.png`, `fjord.wav`, and
-  `Kerrstinn Manual.pdf`. See [LICENSE-ASSETS](./LICENSE-ASSETS).
+  includes `original/bmp00128.png` through `original/bmp00132.png`, `original/fjord.wav`, and
+  `original/Kerrstinn Manual.pdf`. See [LICENSE-ASSETS](./LICENSE-ASSETS).
 
 When adapting the assets, the CC BY-SA terms require attribution and sharing
 the adaptation under the same or a compatible license. Merely using an asset
