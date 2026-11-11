@@ -12,9 +12,6 @@ the GPL. This repository holds the original source and new ports built on it:
 | `rack/` | VCV Rack 2 module, clocked by a 24 PPQN input |
 | `tests/` | Engine tests against the original code |
 
-The Clouds firmware mode (Instruō µClouds) lives in a separate repository next
-to this one (`../uClouds-Firmware`). It vendors `engine/`.
-
 ## Using it
 
 The plugin is an instrument. Load it on a MIDI track, click the waveform (or
